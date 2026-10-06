@@ -1,6 +1,8 @@
-﻿namespace Iru.IruCode.Relics;
+﻿using MegaCrit.Sts2.Core.Entities.Relics;
 
-public class PhotonRifle
+namespace Iru.IruCode.Relics;
+
+public class PhotonRifle : IruResourceRelicBase
 {
-    
+    public override RelicRarity Rarity => RelicRarity.Starter;
 }

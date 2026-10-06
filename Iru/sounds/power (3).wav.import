@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://blhnqfgjf10q7"
+path="res://.godot/imported/power (3).wav-5a618246c3c41c7373e121ad4d77e035.sample"
+
+[deps]
+
+source_file="res://Iru/sounds/power (3).wav"
+dest_files=["res://.godot/imported/power (3).wav-5a618246c3c41c7373e121ad4d77e035.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

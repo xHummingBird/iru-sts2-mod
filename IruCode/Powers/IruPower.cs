@@ -8,6 +8,6 @@ namespace Iru.IruCode.Powers;
 public abstract class IruPower : CustomPowerModel
 {
     //Loads from Iru/images/powers/your_power.png
-    public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".PowerImagePath();
+    public override string CustomPackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
     public override string CustomBigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigPowerImagePath();
 }

@@ -12,14 +12,6 @@ public static class IruResourceManager
     {
         public Action<int>? OnHyperChanged;
         public Action<int>? OnHeatChanged;
-
-        /*
-         * Invoked whenever either Hyper or Heat changes.
-         *
-         * Parameters:
-         * 1. Current Hyper
-         * 2. Current Heat
-         */
         public Action<int, int>? OnResourcesChanged;
     }
 
@@ -41,25 +33,12 @@ public static class IruResourceManager
                 player,
                 out ResourceData? data))
         {
-            data =
-                new ResourceData();
+            data = new ResourceData();
 
-            _data[player] =
-                data;
+            _data[player] = data;
         }
 
         return data;
-    }
-
-    private static void NotifyResourcesChanged(
-        Player player)
-    {
-        ResourceData data =
-            GetData(player);
-
-        data.OnResourcesChanged?.Invoke(
-            GetHyper(player),
-            GetHeat(player));
     }
 
     // -------------------------
@@ -69,7 +48,10 @@ public static class IruResourceManager
     public static int GetHyper(
         Player player)
     {
-        return GetRelic(player)?.StoredHyper ?? 0;
+        IruResourceRelicBase? relic =
+            GetRelic(player);
+
+        return relic?.StoredHyper ?? 0;
     }
 
     public static void SetHyper(
@@ -91,8 +73,7 @@ public static class IruResourceManager
         if (relic.StoredHyper == newValue)
             return;
 
-        relic.StoredHyper =
-            newValue;
+        relic.StoredHyper = newValue;
 
         ResourceData data =
             GetData(player);
@@ -105,26 +86,35 @@ public static class IruResourceManager
             relic.StoredHeat);
     }
 
-    public static void GainHyper(
+    public static int GainHyper(
         Player player,
         int amount)
     {
         if (amount <= 0)
-            return;
+            return 0;
+
+        int current =
+            GetHyper(player);
+
+        int newValue =
+            Math.Clamp(
+                current + amount,
+                0,
+                IruResourceRelicBase.MaxHyper);
+
+        int gained =
+            newValue - current;
+
+        if (gained <= 0)
+            return 0;
 
         SetHyper(
             player,
-            GetHyper(player) + amount);
+            newValue);
+
+        return gained;
     }
 
-    /*
-     * Removes up to the requested amount of Hyper.
-     *
-     * Returns the amount actually spent.
-     *
-     * For example, if Iru has 20 Hyper and attempts
-     * to spend 50, this removes and returns 20.
-     */
     public static int SpendHyper(
         Player player,
         int amount)
@@ -153,9 +143,31 @@ public static class IruResourceManager
     public static int SpendAllHyper(
         Player player)
     {
+        int current =
+            GetHyper(player);
+
+        if (current <= 0)
+            return 0;
+
         return SpendHyper(
             player,
-            GetHyper(player));
+            current);
+    }
+
+    public static int ClearHyper(
+        Player player)
+    {
+        int current =
+            GetHyper(player);
+
+        if (current <= 0)
+            return 0;
+
+        SetHyper(
+            player,
+            0);
+
+        return current;
     }
 
     public static bool HasHyper(
@@ -184,6 +196,13 @@ public static class IruResourceManager
             GetHyper(player));
     }
 
+    public static float GetHyperPercentage(
+        Player player)
+    {
+        return GetHyper(player) /
+               (float)IruResourceRelicBase.MaxHyper;
+    }
+
     // -------------------------
     // Heat
     // -------------------------
@@ -191,7 +210,10 @@ public static class IruResourceManager
     public static int GetHeat(
         Player player)
     {
-        return GetRelic(player)?.StoredHeat ?? 0;
+        IruResourceRelicBase? relic =
+            GetRelic(player);
+
+        return relic?.StoredHeat ?? 0;
     }
 
     public static void SetHeat(
@@ -213,8 +235,7 @@ public static class IruResourceManager
         if (relic.StoredHeat == newValue)
             return;
 
-        relic.StoredHeat =
-            newValue;
+        relic.StoredHeat = newValue;
 
         ResourceData data =
             GetData(player);
@@ -227,29 +248,35 @@ public static class IruResourceManager
             newValue);
     }
 
-    public static void GainHeat(
+    public static int GainHeat(
         Player player,
         int amount)
     {
         if (amount <= 0)
-            return;
+            return 0;
+
+        int current =
+            GetHeat(player);
+
+        int newValue =
+            Math.Clamp(
+                current + amount,
+                0,
+                IruResourceRelicBase.MaxHeat);
+
+        int gained =
+            newValue - current;
+
+        if (gained <= 0)
+            return 0;
 
         SetHeat(
             player,
-            GetHeat(player) + amount);
+            newValue);
+
+        return gained;
     }
 
-    /*
-     * Removes Heat without generating Hyper.
-     *
-     * Use this for:
-     * - Heat decay that should not convert
-     * - cleansing effects
-     * - penalties
-     * - effects that explicitly say "Lose Heat"
-     *
-     * Returns the amount of Heat actually removed.
-     */
     public static int LoseHeat(
         Player player,
         int amount)
@@ -276,17 +303,8 @@ public static class IruResourceManager
     }
 
     /*
-     * Spends Heat and converts the amount actually
-     * spent into the same amount of Hyper.
-     *
-     * For example:
-     *
-     * Iru has 30 Heat.
-     * An effect attempts to spend 50 Heat.
-     * 30 Heat is spent.
-     * 30 Hyper is gained.
-     *
-     * Returns the amount of Heat actually spent.
+     * Spending Heat converts the amount actually
+     * removed into the same amount of Hyper.
      */
     public static int SpendHeat(
         Player player,
@@ -310,28 +328,37 @@ public static class IruResourceManager
         return spent;
     }
 
-    /*
-     * Spends all current Heat and converts the full
-     * amount spent into Hyper.
-     */
     public static int SpendAllHeat(
         Player player)
     {
+        int current =
+            GetHeat(player);
+
+        if (current <= 0)
+            return 0;
+
         return SpendHeat(
             player,
-            GetHeat(player));
+            current);
     }
 
     /*
-     * Removes all current Heat without converting
-     * it into Hyper.
+     * Clears Heat without converting it into Hyper.
      */
     public static int ClearHeat(
         Player player)
     {
-        return LoseHeat(
+        int current =
+            GetHeat(player);
+
+        if (current <= 0)
+            return 0;
+
+        SetHeat(
             player,
-            GetHeat(player));
+            0);
+
+        return current;
     }
 
     public static bool HasHeat(
@@ -347,4 +374,251 @@ public static class IruResourceManager
     public static bool IsHeatFull(
         Player player)
     {
-        return GetHeat
+        return GetHeat(player) >=
+               IruResourceRelicBase.MaxHeat;
+    }
+
+    public static int GetMissingHeat(
+        Player player)
+    {
+        return Math.Max(
+            0,
+            IruResourceRelicBase.MaxHeat -
+            GetHeat(player));
+    }
+
+    public static float GetHeatPercentage(
+        Player player)
+    {
+        return GetHeat(player) /
+               (float)IruResourceRelicBase.MaxHeat;
+    }
+
+    // -------------------------
+    // Turn-based Heat cooling
+    // -------------------------
+
+    /*
+     * Removes Heat through automatic turn-based cooling.
+     *
+     * If convertToHyper is true, the amount actually
+     * removed is also gained as Hyper.
+     */
+    public static int CoolHeat(
+        Player player,
+        int amount,
+        bool convertToHyper)
+    {
+        if (amount <= 0)
+            return 0;
+
+        int cooled =
+            LoseHeat(
+                player,
+                amount);
+
+        if (cooled <= 0)
+            return 0;
+
+        if (convertToHyper)
+        {
+            GainHyper(
+                player,
+                cooled);
+        }
+
+        return cooled;
+    }
+
+    /*
+     * Calculates Iru's default turn-based Heat loss:
+     *
+     * 20% of current Heat + 10.
+     *
+     * Integer division rounds the percentage portion down.
+     */
+    public static int CalculateHeatDecay(
+        Player player)
+    {
+        int currentHeat =
+            GetHeat(player);
+
+        if (currentHeat <= 0)
+            return 0;
+
+        int percentageDecay =
+            currentHeat * 20 / 100;
+
+        int totalDecay =
+            percentageDecay + 10;
+
+        return Math.Clamp(
+            totalDecay,
+            0,
+            currentHeat);
+    }
+
+    /*
+     * Convenience method that calculates and applies
+     * the default 20% + 10 Heat decay.
+     */
+    public static int CoolHeat(
+        Player player,
+        bool convertToHyper)
+    {
+        int amount =
+            CalculateHeatDecay(
+                player);
+
+        return CoolHeat(
+            player,
+            amount,
+            convertToHyper);
+    }
+
+    // -------------------------
+    // Damage multiplier
+    // -------------------------
+
+    /*
+     * Heat increases incoming damage by Heat%.
+     *
+     * 0 Heat   = 1.00x
+     * 10 Heat  = 1.10x
+     * 50 Heat  = 1.50x
+     * 100 Heat = 2.00x
+     */
+    public static float GetHeatDamageMultiplier(
+        Player player)
+    {
+        return 1f +
+               GetHeat(player) / 100f;
+    }
+
+    // -------------------------
+    // Combined resource changes
+    // -------------------------
+
+    /*
+     * Sets both resources and invokes the combined
+     * notification only once.
+     */
+    public static void SetResources(
+        Player player,
+        int hyper,
+        int heat)
+    {
+        IruResourceRelicBase? relic =
+            GetRelic(player);
+
+        if (relic == null)
+            return;
+
+        int newHyper =
+            Math.Clamp(
+                hyper,
+                0,
+                IruResourceRelicBase.MaxHyper);
+
+        int newHeat =
+            Math.Clamp(
+                heat,
+                0,
+                IruResourceRelicBase.MaxHeat);
+
+        bool hyperChanged =
+            relic.StoredHyper != newHyper;
+
+        bool heatChanged =
+            relic.StoredHeat != newHeat;
+
+        if (!hyperChanged &&
+            !heatChanged)
+        {
+            return;
+        }
+
+        relic.StoredHyper =
+            newHyper;
+
+        relic.StoredHeat =
+            newHeat;
+
+        ResourceData data =
+            GetData(player);
+
+        if (hyperChanged)
+        {
+            data.OnHyperChanged?.Invoke(
+                newHyper);
+        }
+
+        if (heatChanged)
+        {
+            data.OnHeatChanged?.Invoke(
+                newHeat);
+        }
+
+        data.OnResourcesChanged?.Invoke(
+            newHyper,
+            newHeat);
+    }
+
+    public static void Reset(
+        Player player)
+    {
+        SetResources(
+            player,
+            0,
+            0);
+    }
+
+    // -------------------------
+    // UI
+    // -------------------------
+
+    public static ResourceData GetDataForUI(
+        Player player)
+    {
+        return GetData(player);
+    }
+
+    public static void NotifyCurrentValues(
+        Player player)
+    {
+        ResourceData data =
+            GetData(player);
+
+        int hyper =
+            GetHyper(player);
+
+        int heat =
+            GetHeat(player);
+
+        data.OnHyperChanged?.Invoke(
+            hyper);
+
+        data.OnHeatChanged?.Invoke(
+            heat);
+
+        data.OnResourcesChanged?.Invoke(
+            hyper,
+            heat);
+    }
+
+    // -------------------------
+    // Cleanup
+    // -------------------------
+
+    public static void ClearPlayerData(
+        Player player)
+    {
+        _data.Remove(
+            player);
+    }
+
+    public static void ClearAllData()
+    {
+        _data.Clear();
+    }
+}

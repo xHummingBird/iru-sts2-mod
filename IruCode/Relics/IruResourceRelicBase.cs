@@ -10,6 +10,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Iru.IruCode.Relics;
 
@@ -36,7 +37,7 @@ public abstract class IruResourceRelicBase : IruRelic
      * Iru gains 10 Hyper at the start of her turn.
      */
     protected virtual int HyperPerTurn =>
-        10;
+        0;
 
     /*
      * Iru gains 10 Hyper whenever she plays a card.
@@ -202,6 +203,26 @@ public abstract class IruResourceRelicBase : IruRelic
 
         SetDamageTakenTracking(
             false);
+
+        return Task.CompletedTask;
+    }
+    
+    public override Task AfterDamageReceived(
+        PlayerChoiceContext choiceContext,
+        Creature target,
+        DamageResult result,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource)
+    {
+        if (target != Owner.Creature)
+            return Task.CompletedTask;
+
+        // Fully blocked damage does not count
+        if (result.UnblockedDamage <= 0)
+            return Task.CompletedTask;
+
+        MarkDamageTaken();
 
         return Task.CompletedTask;
     }
@@ -464,6 +485,23 @@ public abstract class IruResourceRelicBase : IruRelic
     {
         return 1f +
                GetHeat() / 100f;
+    }
+    
+    public override decimal ModifyDamageMultiplicative(
+        Creature? target,
+        decimal amount,
+        ValueProp props,
+        Creature? dealer,
+        CardModel? cardSource,
+        CardPlay? cardPlay)
+    {
+        if (target != Owner.Creature)
+            return 1m;
+
+        if (dealer == Owner.Creature)
+            return 1m;
+
+        return 1m + (GetHeat() / 100m);
     }
 
     // -------------------------

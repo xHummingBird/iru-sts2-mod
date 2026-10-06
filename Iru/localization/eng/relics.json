@@ -1,3 +1,5 @@
 {
-  
+  "IRU-PHOTON_RIFLE.description": "If you did not take any damage last turn, lose 10 [red]Heat[/red] and 20% of total [red]Heat[/red] at the start of your turn.",
+  "IRU-PHOTON_RIFLE.flavor": "",
+  "IRU-PHOTON_RIFLE.title": "Photon Rifle"
 }

@@ -1,3 +1,16 @@
 {
-  
+  "IRU-IRU.aromaPrinciple": "Victory is decided by superior firepower.",
+  "IRU-IRU.banter.alive.endTurnPing": "Hey! Stop daydreaming and end your turn already!",
+  "IRU-IRU.banter.dead.endTurnPing": "Well, don't mind me. Keep going.",
+  "IRU-IRU.cardsModifierDescription": "Iru cards will now appear in rewards and shops.",
+  "IRU-IRU.cardsModifierTitle": "Iru Cards",
+  "IRU-IRU.description": "A ranged specialist who deploys traps, rockets, and overwhelming firepower. Generate Heat to unleash devastating Hyper attacks.",
+  "IRU-IRU.eventDeathPrevention": "Don't underestimate me. I'm not going down that easily.",
+  "IRU-IRU.goldMonologue": "Heh. Looks like I hit the jackpot.",
+  "IRU-IRU.possessiveAdjective": "her",
+  "IRU-IRU.pronounObject": "her",
+  "IRU-IRU.pronounPossessive": "hers",
+  "IRU-IRU.pronounSubject": "she",
+  "IRU-IRU.title": "Photon Gunner Iru",
+  "IRU-IRU.titleObject": "Photon Gunner Iru"
 }

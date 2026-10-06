@@ -1,3 +1,7 @@
 {
-  
+  "IRU_HEAT.title": "Heat",
+  "IRU_HEAT.description": "Heat increases damage received by the same percentage. \nAt the start of your turn, lose 20% of your Heat plus 10. \nIf you took no HP damage since your previous turn, gain Hyper equal to the Heat lost this way.",
+
+  "IRU_HYPER.title": "Hyper",
+  "IRU_HYPER.description": "Current Hyper: %HYPER%/%MAXHYPER%. \nGain 10 Hyper whenever you play a card. \nSpending Heat also grants Hyper."
 }

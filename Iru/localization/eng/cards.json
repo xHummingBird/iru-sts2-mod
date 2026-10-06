@@ -1,3 +1,13 @@
 {
+  "IRU-STRIKE_IRU.description": "Deal {Damage:diff()} damage.",
+  "IRU-STRIKE_IRU.title": "Strike",
+
+  "IRU-DEFEND_IRU.description": "Gain {Block:diff()} [gold]Block[/gold].",
+  "IRU-DEFEND_IRU.title": "Defend",
   
+  "IRU-PHOTON_RIFLE.description": "Deal {Damage:diff()} damage. \nGain 30 [red]Heat[/red].",
+  "IRU-PHOTON_RIFLE.title": "Photon Rifle",
+
+  "IRU-DASH.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain 30 [red]Heat[/red].",
+  "IRU-DASH.title": "Dash"
 }
