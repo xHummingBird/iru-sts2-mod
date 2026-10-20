@@ -17,7 +17,7 @@ public class PhotonRifle() : IruCard(1, CardType.Attack,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
-        new DamageVar(13, ValueProp.Move)
+        new DamageVar(12, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://d1uvfoasg3vkh"]
+[gd_scene load_steps=38 format=3 uid="uid://d1uvfoasg3vkh"]
 
 [ext_resource type="Texture2D" uid="uid://cglh3ed07f1kw" path="res://Iru/images/spritesheet/idle/idle (1).png" id="1_j5nd8"]
 [ext_resource type="Texture2D" uid="uid://ytgwxgojvokk" path="res://Iru/images/spritesheet/idle/idle (2).png" id="2_h2ynf"]
@@ -22,6 +22,12 @@
 [ext_resource type="Texture2D" uid="uid://g1f2oibrvn58" path="res://Iru/images/spritesheet/victory/ir_sld01 (1).png" id="20_bd3sm"]
 [ext_resource type="Texture2D" uid="uid://cqjhlkwoltofn" path="res://Iru/images/spritesheet/victory/ir_sld02 (1).png" id="21_6ghw1"]
 [ext_resource type="Texture2D" uid="uid://c5u08m7qd26y0" path="res://Iru/images/spritesheet/victory/ir_sld03 (1).png" id="22_gp573"]
+[ext_resource type="Texture2D" uid="uid://clt82g7mni1kg" path="res://Iru/images/spritesheet/attack/launcher/ir_bazz00.png" id="23_gxnwm"]
+[ext_resource type="Texture2D" uid="uid://ciy1b7b7uw0jr" path="res://Iru/images/spritesheet/attack/launcher/ir_bazz01.png" id="24_n4tge"]
+[ext_resource type="Texture2D" uid="uid://ck3y47nnewgy1" path="res://Iru/images/spritesheet/attack/launcher/ir_bazz02.png" id="25_eqi4x"]
+[ext_resource type="Texture2D" uid="uid://c187b78xxr8wr" path="res://Iru/images/spritesheet/attack/launcher/ir_bazz03.png" id="26_sioj2"]
+[ext_resource type="Texture2D" uid="uid://rxurkbr8w7ql" path="res://Iru/images/spritesheet/attack/launcher/ir_bazz04.png" id="27_sbs1n"]
+[ext_resource type="Texture2D" uid="uid://co3xuanyissug" path="res://Iru/images/spritesheet/attack/launcher/ir_bazz05.png" id="28_c5qrd"]
 
 [sub_resource type="Animation" id="Animation_sioj2"]
 length = 0.001
@@ -1059,9 +1065,158 @@ tracks/11/keys = {
 "values": [Vector2(0.8, 0.8)]
 }
 
+[sub_resource type="Animation" id="Animation_hhp7b"]
+resource_name = "attack_2"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Visuals/iru:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.23333336, 0.33333337, 0.43333334, 0.53333336),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("23_gxnwm"), ExtResource("24_n4tge"), ExtResource("25_eqi4x"), ExtResource("26_sioj2"), ExtResource("27_sbs1n"), ExtResource("28_c5qrd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Visuals/shadow:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_k6lve")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Visuals/shadow:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Visuals/iru:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Visuals/iru:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4, -141)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Visuals/shadow:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.9999999, -1.0000001)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Visuals/iru:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, 2)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Visuals/iru:skew")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Visuals/iru:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Visuals/shadow:skew")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Visuals/shadow:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Visuals/shadow:scale")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.8, 0.8)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gg41b"]
 _data = {
 &"RESET": SubResource("Animation_sioj2"),
+&"attack_2": SubResource("Animation_hhp7b"),
 &"attack_iru": SubResource("Animation_sbs1n"),
 &"block": SubResource("Animation_c5qrd"),
 &"die": SubResource("Animation_j5nd8"),
@@ -1091,6 +1246,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="Bounds" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -96.0

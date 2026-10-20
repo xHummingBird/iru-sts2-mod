@@ -1,7 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjt2148mwn4s3"]
+[gd_scene load_steps=13 format=3 uid="uid://bjt2148mwn4s3"]
 
 [ext_resource type="Texture2D" uid="uid://c8wuipkgm4ccp" path="res://Iru/images/spritesheet/vfx/rifle_vfx.png" id="1_k02gr"]
 [ext_resource type="Texture2D" uid="uid://cwi47mikqb7rw" path="res://Iru/images/spritesheet/vfx/photon_hit/ir_hbitf01.png" id="3_5ad0a"]
+[ext_resource type="Texture2D" uid="uid://j7kuw2l1lhqt" path="res://Iru/images/spritesheet/vfx/missile_1/ir_geno00.png" id="3_s2gp4"]
+[ext_resource type="Texture2D" uid="uid://di1f4f546sw8l" path="res://Iru/images/spritesheet/vfx/missile_1/ir_geno03.png" id="4_i2gni"]
+[ext_resource type="Texture2D" uid="uid://c175d3bn82xy7" path="res://Iru/images/spritesheet/vfx/missile_1/ir_geno06.png" id="5_tp0ht"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_71328"]
 blend_mode = 1
@@ -15,7 +18,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("photon_rifle:texture")
+tracks/0/path = NodePath("photon:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +30,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("photon_rifle:material")
+tracks/1/path = NodePath("photon:material")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +42,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("photon_rifle:position")
+tracks/2/path = NodePath("photon:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,7 +54,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("photon_rifle:rotation")
+tracks/3/path = NodePath("photon:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -63,7 +66,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("photon_rifle:scale")
+tracks/4/path = NodePath("photon:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -75,7 +78,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("photon_rifle:visible")
+tracks/5/path = NodePath("photon:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -132,6 +135,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("missile:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
 
 [sub_resource type="Animation" id="Animation_i2gni"]
 resource_name = "photon_hit"
@@ -151,7 +166,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("photon_rifle:visible")
+tracks/1/path = NodePath("photon:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -203,7 +218,7 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("photon_rifle:texture")
+tracks/0/path = NodePath("photon:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -215,7 +230,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("photon_rifle:material")
+tracks/1/path = NodePath("photon:material")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -227,7 +242,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("photon_rifle:position")
+tracks/2/path = NodePath("photon:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -239,7 +254,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("photon_rifle:rotation")
+tracks/3/path = NodePath("photon:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -251,7 +266,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("photon_rifle:scale")
+tracks/4/path = NodePath("photon:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -263,7 +278,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("photon_rifle:visible")
+tracks/5/path = NodePath("photon:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -285,20 +300,64 @@ tracks/6/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_hbepa"]
+resource_name = "missile_1"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("photon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("vfx:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("missile:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_s2gp4"), ExtResource("4_i2gni"), ExtResource("5_tp0ht")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i2gni"]
 _data = {
 &"RESET": SubResource("Animation_s2gp4"),
+&"missile_1": SubResource("Animation_hbepa"),
 &"photon_hit": SubResource("Animation_i2gni"),
 &"photon_rifle": SubResource("Animation_5ad0a")
 }
 
 [node name="Vfx" type="Node2D"]
 
-[node name="photon_rifle" type="Sprite2D" parent="."]
+[node name="photon" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_71328")
 position = Vector2(0, -61.000008)
 scale = Vector2(2.0461538, 0.9782608)
 texture = SubResource("AtlasTexture_n5qbm")
+
+[node name="missile" type="Sprite2D" parent="."]
+position = Vector2(98, -102)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
