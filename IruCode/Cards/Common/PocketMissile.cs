@@ -5,6 +5,7 @@ using Iru.IruCode.Mechanics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -12,12 +13,17 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace Iru.IruCode.Cards.Common;
 
 public class PocketMissile() : IruCard(0, CardType.Attack,
-    CardRarity.Common, TargetType.AnyEnemy)
+    CardRarity.Common, TargetType.AnyEnemy), IHeatCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         new DamageVar(8, ValueProp.Move),
-        new DynamicVar("HeatGain", 30)
+        new DynamicVar("Heat", 30)
+    ];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        IruStaticHoverTips.Heat
     ];
 
     protected override async Task OnPlay(
@@ -29,7 +35,7 @@ public class PocketMissile() : IruCard(0, CardType.Attack,
         if (ownerCreature != null && Owner?.Character is Character.Iru iru)
         {
             AudioHelper.PlayRandomAttack();
-            float duration = iru.PlayAnimation(ownerCreature, "attack_2").total;
+            float duration = iru.PlayAnimation(ownerCreature, "attack_2", true).total;
             
             await Task.Delay((int)(0.133f * 1000f));
             SfxCmd.Play("res://Iru/sfx/Rocket_and_missile_barrage_launch.wav");
@@ -37,26 +43,26 @@ public class PocketMissile() : IruCard(0, CardType.Attack,
                 Owner.Creature,
                 play.Target,
                 "res://Iru/scenes/vfx.tscn",
-                animationName: "photon_rifle",
-                spawnOffset: new Vector2(120, -80),
-                stopDistance: 130f,
+                animationName: "missile_1",
+                spawnOffset: new Vector2(100, -80),
+                stopDistance: 110f,
                 duration: 0.2F
             );
             iru.PlayVfxOnTarget(
                 play.Target,
                 "res://Iru/scenes/vfx.tscn",
-                "missile_1"
+                "photon_hit"
             );
         }
         await CommonActions.CardAttack(this, play.Target)
-            .WithHitFx(null, null)
+            .WithHitFx(null, "res://Iru/sfx/fire_impact (2).wav")
             .Execute(choiceContext);
-        IruResourceManager.GainHeat(Owner, DynamicVars["HeatGain"].IntValue);
+        IruResourceManager.GainHeat(Owner, DynamicVars["Heat"].IntValue);
     }
     
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars["HeatGain"].UpgradeValueBy(-10);
+        DynamicVars["Heat"].UpgradeValueBy(-10);
     }
 }

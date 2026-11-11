@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Iru.IruCode.Cards.Ancient;
+using Iru.IruCode.Extensions;
 using Iru.IruCode.Mechanics;
+using Iru.IruCode.Powers;
 using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
@@ -20,8 +24,30 @@ public abstract class IruResourceRelicBase : IruRelic
     private int _storedHeat;
     private bool _tookDamageSinceLastTurn;
 
+    private bool _hyperReadyGrantedThisTurn;
+
+    public const int HyperReadyThreshold = 100;
     public const int MaxHyper = 300;
     public const int MaxHeat = 999;
+
+    public bool HyperReadyGrantedThisTurn =>
+        _hyperReadyGrantedThisTurn;
+
+    public void MarkHyperReadyGranted()
+    {
+        AssertMutable();
+
+        _hyperReadyGrantedThisTurn =
+            true;
+    }
+
+    public void ResetHyperReadyForTurn()
+    {
+        AssertMutable();
+
+        _hyperReadyGrantedThisTurn =
+            false;
+    }
 
     public override RelicRarity Rarity =>
         RelicRarity.Starter;
@@ -37,7 +63,7 @@ public abstract class IruResourceRelicBase : IruRelic
      * Iru gains 10 Hyper at the start of her turn.
      */
     protected virtual int HyperPerTurn =>
-        0;
+        10;
 
     /*
      * Iru gains 10 Hyper whenever she plays a card.
@@ -139,6 +165,8 @@ public abstract class IruResourceRelicBase : IruRelic
     {
         IruResourceManager.Reset(
             Owner);
+        
+        ResetHyperReadyForTurn();
 
         SetDamageTakenTracking(
             false);
@@ -154,6 +182,8 @@ public abstract class IruResourceRelicBase : IruRelic
     public override Task AfterCombatEnd(
         CombatRoom _)
     {
+        ResetHyperReadyForTurn();
+        
         IruResourceManager.Reset(
             Owner);
 
@@ -178,13 +208,15 @@ public abstract class IruResourceRelicBase : IruRelic
      * 4. Gain the normal 10 Hyper per turn.
      * 5. Reset damage tracking for the new turn.
      */
-    public override Task AfterSideTurnStart(
+    public override async Task AfterSideTurnStart(
         CombatSide side,
         IReadOnlyList<Creature> participants,
         ICombatState combatState)
     {
         if (side != Owner.Creature.Side)
-            return Task.CompletedTask;
+            return;
+
+        ResetHyperReadyForTurn();
 
         bool convertHeatToHyper =
             !TookDamageSinceLastTurn;
@@ -204,7 +236,10 @@ public abstract class IruResourceRelicBase : IruRelic
         SetDamageTakenTracking(
             false);
 
-        return Task.CompletedTask;
+        await Owner.Creature.CheckHyperReady(
+            new ThrowingPlayerChoiceContext(),
+            Owner.Creature,
+            null);
     }
     
     public override Task AfterDamageReceived(
@@ -231,7 +266,7 @@ public abstract class IruResourceRelicBase : IruRelic
      * Iru gains 10 Hyper whenever she finishes
      * playing one of her cards.
      */
-    public override Task AfterCardPlayed(
+    public override async Task AfterCardPlayed(
         PlayerChoiceContext choiceContext,
         CardPlay cardPlay)
     {
@@ -239,10 +274,13 @@ public abstract class IruResourceRelicBase : IruRelic
             cardPlay.Card;
 
         if (card.Owner != Owner)
-            return Task.CompletedTask;
+            return;
+
+        if (card is HyperAttack || card is LinearRay || card is GenocideBomb || card is LightDestructionRay)
+            return;
 
         if (!CombatManager.Instance.IsInProgress)
-            return Task.CompletedTask;
+            return;
 
         int hyperGain =
             Math.Max(
@@ -252,8 +290,11 @@ public abstract class IruResourceRelicBase : IruRelic
         IruResourceManager.GainHyper(
             Owner,
             hyperGain);
-
-        return Task.CompletedTask;
+        
+        await Owner.Creature.CheckHyperReady(
+            choiceContext,
+            Owner.Creature,
+            null);
     }
 
     /*
@@ -498,10 +539,16 @@ public abstract class IruResourceRelicBase : IruRelic
         if (target != Owner.Creature)
             return 1m;
 
-        if (dealer == Owner.Creature)
+        if (target.HasPower<NoHeatDamagePower>())
             return 1m;
 
-        return 1m + (GetHeat() / 100m);
+        if (dealer == Owner.Creature)
+            return 1m;
+        
+        if (GetHeat() > Owner.Creature.GetPowerAmount<PhotonStabiliserPower>())
+            return 1m + ((GetHeat() - Owner.Creature.GetPowerAmount<PhotonStabiliserPower>()) / 100m);
+
+        return 1m;
     }
 
     // -------------------------

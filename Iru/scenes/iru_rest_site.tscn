@@ -1,0 +1,105 @@
+[gd_scene load_steps=10 format=3 uid="uid://bq476jsjbtg4h"]
+
+[ext_resource type="Script" uid="uid://c26wa8liq8n87" path="res://IruCode/Nodes/IruNRestSiteCharacter.cs" id="1_nsbi6"]
+[ext_resource type="Texture2D" uid="uid://cglh3ed07f1kw" path="res://Iru/images/spritesheet/idle/idle (1).png" id="1_pxt6h"]
+[ext_resource type="Texture2D" uid="uid://dgottn5irk5a1" path="res://Iru/images/spritesheet/shadow.png" id="2_lpx54"]
+[ext_resource type="Texture2D" uid="uid://ytgwxgojvokk" path="res://Iru/images/spritesheet/idle/idle (2).png" id="2_nsbi6"]
+[ext_resource type="Texture2D" uid="uid://bgas6wt0vfun6" path="res://Iru/images/spritesheet/idle/idle (3).png" id="3_t27ad"]
+[ext_resource type="PackedScene" uid="uid://5fkryglj1k0e" path="res://Iru/scenes/selection_reticle.tscn" id="5_t27ad"]
+
+[sub_resource type="Animation" id="Animation_ebjc6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_pxt6h")]
+}
+
+[sub_resource type="Animation" id="Animation_xu5ug"]
+resource_name = "rest_site"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_pxt6h"), ExtResource("2_nsbi6"), ExtResource("3_t27ad")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qe8jq"]
+_data = {
+&"RESET": SubResource("Animation_ebjc6"),
+&"rest_site": SubResource("Animation_xu5ug")
+}
+
+[node name="CloudRestSite" type="Node2D"]
+scale = Vector2(1.75, 1.75)
+script = ExtResource("1_nsbi6")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(122.85715, 84.57143)
+rotation = 3.1415927
+texture = ExtResource("2_lpx54")
+
+[node name="Visuals" type="Sprite2D" parent="."]
+position = Vector2(109.71429, -25.714285)
+scale = Vector2(-2, 2)
+texture = ExtResource("1_pxt6h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Visuals")
+libraries = {
+&"": SubResource("AnimationLibrary_qe8jq")
+}
+autoplay = "rest_site"
+
+[node name="ControlRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SelectionReticle" parent="ControlRoot" instance=ExtResource("5_t27ad")]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 29.714287
+offset_top = -194.28572
+offset_right = 221.0
+offset_bottom = 115.42854
+
+[node name="Hitbox" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 26.28572
+offset_top = -189.14287
+offset_right = 228.0
+offset_bottom = 114.28572
+
+[node name="ThoughtBubbleRight" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 195.0
+offset_top = -93.0
+offset_right = 195.0
+offset_bottom = -93.0
+
+[node name="ThoughtBubbleLeft" type="Control" parent="ControlRoot"]
+unique_name_in_owner = true
+anchors_preset = 0
+offset_left = 40.571434
+offset_top = -93.0
+offset_right = 40.571434
+offset_bottom = -93.0

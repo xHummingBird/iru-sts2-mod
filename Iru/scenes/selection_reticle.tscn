@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://5fkryglj1k0e"]
+
+[ext_resource type="Script" uid="uid://b4k88dk0844uo" path="res://IruCode/Nodes/IruNSelectionReticle.cs" id="1_a0dq0"]
+
+[node name="SelectionReticle" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a0dq0")
+
+[node name="ReticleImage" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

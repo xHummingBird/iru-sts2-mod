@@ -5,9 +5,186 @@
   "IRU-DEFEND_IRU.description": "Gain {Block:diff()} [gold]Block[/gold].",
   "IRU-DEFEND_IRU.title": "Defend",
   
-  "IRU-PHOTON_RIFLE.description": "Deal {Damage:diff()} damage. \nGain 30 [red]Heat[/red].",
   "IRU-PHOTON_RIFLE.title": "Photon Rifle",
+  "IRU-PHOTON_RIFLE.description": "Deal {Damage:diff()} damage.\nGain {Heat:diff()} [red]Heat[/red].",
 
-  "IRU-DASH.description": "Gain {Block:diff()} [gold]Block[/gold]. \nGain 30 [red]Heat[/red].",
-  "IRU-DASH.title": "Dash"
+  "IRU-DUMBFIRE_ROCKET.title": "Dumbfire Rocket",
+  "IRU-DUMBFIRE_ROCKET.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times.\nGain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-POCKET_MISSILE.title": "Pocket Missile",
+  "IRU-POCKET_MISSILE.description": "Deal {Damage:diff()} damage.\nGain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-SPREAD_PHOTON.title": "Spread Photon",
+  "IRU-SPREAD_PHOTON.description": "Deal {Damage:diff()} damage to ALL enemies.\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+
+  "IRU-LONG_DISTANCE_SHOT.title": "Long Distance Shot",
+  "IRU-LONG_DISTANCE_SHOT.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+
+  "IRU-QUICKFIRE.title": "Quickfire",
+  "IRU-QUICKFIRE.description": "Deal {Damage:diff()} damage.\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
+
+  "IRU-FIRE_AND_FORGET.title": "Fire And Forget",
+  "IRU-FIRE_AND_FORGET.description": "Deal {Damage:diff()} damage.\nIf this is the first card you play this turn, deal damage again.",
+
+  "IRU-HIGH_SPEED_PHOTON.title": "High Speed Photon",
+  "IRU-HIGH_SPEED_PHOTON.description": "Deal {Damage:diff()} damage.\nIf you have played fewer than {PlayMax:diff()} cards this turn, draw 1 card.",
+
+  "IRU-PIERCING_SHOT.title": "Piercing Shot",
+  "IRU-PIERCING_SHOT.description": "Deal {Damage:diff()} damage to ALL enemies.\nGain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-RAPIDFIRE.title": "Rapidfire",
+  "IRU-RAPIDFIRE.description": "Deal {Damage:diff()} damage to ALL enemies X times.\nGain {Heat:diff()} [red]Heat[/red] X times.",
+
+  "IRU-WARNING_SHOT.title": "Warning Shot",
+  "IRU-WARNING_SHOT.description": "Deal {Damage:diff()} damage.\nGain {Hyper:diff()} [gold]Hyper[/gold].",
+
+  "IRU-HOMING_MISSILE.title": "Homing Missile",
+  "IRU-HOMING_MISSILE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold].",
+
+  "IRU-PHOTON_BARRAGE.title": "Photon Barrage",
+  "IRU-PHOTON_BARRAGE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nGain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-RICOCHET.title": "Ricochet",
+  "IRU-RICOCHET.description": "Deal {Damage:diff()} damage to ALL enemies. \nCosts 1 less {energyPrefix:energyIcons(1)} for each Attack played this turn.",
+
+  "IRU-EXTENDED_RIFLE.title": "Extended Rifle",
+  "IRU-EXTENDED_RIFLE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {BonusDamage:diff()} additional damage for every 15 [red]Heat[/red].",
+
+  "IRU-EMERGENCY_PAYLOAD.title": "Emergency Payload",
+  "IRU-EMERGENCY_PAYLOAD.description": "Deal {Damage:diff()} damage.\nIf you have at least 100 [red]Heat[/red], gain {Energy:energyIcons()}.",
+
+  "IRU-MISSILE_BARRAGE.title": "Missile Barrage",
+  "IRU-MISSILE_BARRAGE.description": "Deal {Damage:diff()} damage for each Attack already played this turn. \nGain {Heat:diff()} [red]Heat[/red]. {InCombat:\n(Hits {CalculatedHits:diff()} {CalculatedHits:plural:time|times})|}",
+
+  "IRU-PHOTON_CANNON.title": "Photon Cannon",
+  "IRU-PHOTON_CANNON.description": "Deal {Damage:diff()} damage.\nGain {Heat:diff()} [red]Heat[/red] and {Hyper:diff()} [gold]Hyper[/gold].",
+
+  "IRU-DASH.title": "Dash",
+  "IRU-DASH.description": "Gain {Block:diff()} [gold]Block[/gold].\nNext turn, gain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-RELOAD.title": "Reload",
+  "IRU-RELOAD.description": "Gain {Heat:diff()} [red]Heat[/red].\nDraw {Cards:diff()} {Cards:plural:card|cards}. They gain [gold]Retain[/gold] this turn.",
+
+  "IRU-ACCELERATION.title": "Acceleration",
+  "IRU-ACCELERATION.description": "Gain {Block:diff()} [gold]Block[/gold].\nNext turn, draw 2 cards.",
+
+  "IRU-FULL_THROTTLE.title": "Full Throttle",
+  "IRU-FULL_THROTTLE.description": "Gain {Block:diff()} [gold]Block[/gold]. \nNext turn, gain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-BARRIER.title": "Barrier",
+  "IRU-BARRIER.description": "Gain {Block:diff()} [gold]Block[/gold].\nNext turn, gain {Block:diff()} [gold]Block[/gold].",
+
+  "IRU-QUICK_EVASION.title": "Quick Evasion",
+  "IRU-QUICK_EVASION.description": "Gain {Block:diff()} [gold]Block[/gold].\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
+
+  "IRU-FLASH.title": "Flash",
+  "IRU-FLASH.description": "Gain {Block:diff()} [gold]Block[/gold].\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].",
+
+  "IRU-COOLDOWN.title": "Cooldown",
+  "IRU-COOLDOWN.description": "Remove all [red]Heat[/red].\nGain [gold]Hyper[/gold] equal to half the [red]Heat[/red] removed.",
+
+  "IRU-BOOSTER.title": "Booster",
+  "IRU-BOOSTER.description": "Gain {VigorPower:diff()} [gold]Vigor[/gold]. \nGain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-BORROWED_TIME.title": "Borrowed Time",
+  "IRU-BORROWED_TIME.description": "This turn, you don't take additional damage from [red]Heat[/red].\nNext turn, gain [red]Heat[/red] equal to your current [red]Heat[/red].",
+
+  "IRU-ELECTROMAGNETIC_TRAP.title": "Electromagnetic Trap",
+  "IRU-ELECTROMAGNETIC_TRAP.description": "Gain {Block:diff()} [gold]Block[/gold].\nThis turn, attackers take {ElectromagneticTrapPower:diff()} damage.",
+
+  "IRU-ELECTROMAGNETIC_BIT.title": "Electromagnetic Bit",
+  "IRU-ELECTROMAGNETIC_BIT.description": "Gain {Heat:diff()} [red]Heat[/red].\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold] to ALL enemies.",
+
+  "IRU-VENTILATION.title": "Ventilation",
+  "IRU-VENTILATION.description": "Gain {Block:diff()} [gold]Block[/gold].\nIf you have at least 50 [red]Heat[/red], consume it and gain Block again.",
+
+  "IRU-RAINBOW_CIRCLE.title": "Rainbow Circle",
+  "IRU-RAINBOW_CIRCLE.description": "Gain {IntangiblePower:diff()} [gold]Intangible[/gold].\nNext turn, gain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-OVERHEAT.title": "Overheat",
+  "IRU-OVERHEAT.description": "Gain {Energy:energyIcons()}.\nGain {Heat:diff()} [red]Heat[/red].\nDraw {Cards:diff()} {Cards:plural:card|cards}.",
+
+  "IRU-HYPER_BOOST.title": "Hyper Boost",
+  "IRU-HYPER_BOOST.description": "Gain {Energy:energyIcons()}.\nGain {Hyper:diff()} [gold]Hyper[/gold].",
+
+  "IRU-PHOTON_BARRIER.title": "Photon Barrier",
+  "IRU-PHOTON_BARRIER.description": "Gain {Block:diff()} [gold]Block[/gold].\nNext turn, gain {Energy:energyIcons()} and {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-LOCK_ON.title": "Lock-On",
+  "IRU-LOCK_ON.description": "Your next Attack this turn deals double damage.\nGain {Heat:diff()} [red]Heat[/red].",
+
+  "IRU-EMERGENCY_COOLING.title": "Emergency Cooling",
+  "IRU-EMERGENCY_COOLING.description": "Remove all [red]Heat[/red].\nGain {Block:diff()} [gold]Block[/gold].\nNext turn, gain all [red]Heat[/red] removed this way.",
+
+  "IRU-TACTICAL_BLOCK.title": "Tactical Block",
+  "IRU-TACTICAL_BLOCK.description": "Gain {Block:diff()} [gold]Block[/gold].\nHalve your [red]Heat[/red].\n[gold]Retain[/gold] your hand this turn.",
+
+  "IRU-SAFEGUARD.title": "Safeguard",
+  "IRU-SAFEGUARD.description": "This turn, you don't take additional damage from [red]Heat[/red].\nGain {Block:diff()} [gold]Block[/gold].",
+
+  "IRU-HYPER_BURST.title": "Hyper Burst",
+  "IRU-HYPER_BURST.description": "Gain 100 [red]Heat[/red].\nGain {Hyper:diff()} [gold]Hyper[/gold].",
+
+  "IRU-TOMBOY.title": "Tomboy",
+  "IRU-TOMBOY.description": "Whenever you gain [red]Heat[/red], draw {Cards:diff()} {Cards:plural:card|cards}.",
+
+  "IRU-HEAVY_ARTILLERY.title": "Heavy Artillery",
+  "IRU-HEAVY_ARTILLERY.description": "At the start of your turn, 20 [red]Heat[/red] and 2 [gold]Strength[/gold].",
+
+  "IRU-ACCEL_HYPER.title": "Accel Hyper",
+  "IRU-ACCEL_HYPER.description": "At the start of your turn, gain {Hyper:diff()} [gold]Hyper[/gold] and {Energy:energyIcons()}.",
+
+  "IRU-HEAT_ABSORPTION.title": "Heat Absorption",
+  "IRU-HEAT_ABSORPTION.description": "Whenever you gain [red]Heat[/red], gain {HeatAbsorptionPower:diff()} [gold]Block[/gold].",
+
+  "IRU-HEAT_ENGINE.title": "Heat Engine",
+  "IRU-HEAT_ENGINE.description": "Whenever you gain [red]Heat[/red], gain {HeatEnginePower:diff()} [gold]Strength[/gold].",
+
+  "IRU-ENERGY_RESERVE.title": "Energy Reserve",
+  "IRU-ENERGY_RESERVE.description": "At the end of your turn, lose {EnergyReservePower:diff()} [red]Heat[/red] for each unspent {energyPrefix:energyIcons(1)}.",
+
+  "IRU-CONVERSION_PROTOCOL.title": "Conversion Protocol",
+  "IRU-CONVERSION_PROTOCOL.description": "Whenever you gain [red]Heat[/red], gain 20 [gold]Hyper[/gold].",
+
+  "IRU-HYPER_ATTACK.title": "Hyper Attack",
+  "IRU-HYPER_ATTACK.description": "Perform a [gold]Hyper[/gold].",
+
+  "IRU-PRECISION_SHOT.description": "Deal {Damage:diff()} damage. \nIf there is only 1 enemy, hit another time.",
+  "IRU-PRECISION_SHOT.title": "Precision Shot",
+
+  "IRU-POINT_BLANK_SHOT.description": "Deal {Damage:diff()} damage. \nApply {WeakPower:diff()} [gold]Weak[/gold].",
+  "IRU-POINT_BLANK_SHOT.title": "Point-Blank Shot",
+
+  "IRU-MISSILE_SALVO.description": "Deal {Damage:diff()} damage 2 times. \nPlay a random{IfUpgraded:show: [gold]Upgraded[/gold]} Attack from your Draw Pile.",
+  "IRU-MISSILE_SALVO.title": "Missile Salvo",
+
+  "IRU-CONCENTRATED_FIRE.description": "Deal {Damage:diff()} damage. \nDouble the enemy's [gold]Vulnerable[/gold] and [gold]Weak[/gold].",
+  "IRU-CONCENTRATED_FIRE.title": "Concentrated Fire",
+  
+  "IRU-COMBAT_ANALYSIS.description": "Draw 1 card. \nIf it is not an Attack card, gain {Heat:diff()} [red]Heat[/red].",
+  "IRU-COMBAT_ANALYSIS.title": "Combat Analysis",
+
+  "IRU-MOCK.description": "Apply 1 [gold]Vulnerable[/gold] and [gold]Weak[/gold].",
+  "IRU-MOCK.title": "Mock",
+
+  "IRU-OVERCLOCK.description": "All Attacks are free this turn. \nThis turn, gain {Heat:diff()} [red]Heat[/red] whenever you use an Attack.",
+  "IRU-OVERCLOCK.title": "Overclock",
+
+  "IRU-ARTILLERY.description": "Add a random Attack into your Hand. \nIt's free to play this turn.",
+  "IRU-ARTILLERY.title": "Artillery",
+
+  "IRU-BATTLE_FOCUS.description": "Gain {DexterityPower:diff()} [gold]Dexterity[/gold]. \nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "IRU-BATTLE_FOCUS.title": "Battle Focus",
+
+  "IRU-PHOTON_STABILISER.description": "Reduce [red]Heat[/red] damage amplification by 30.",
+  "IRU-PHOTON_STABILISER.title": "Photon Stabiliser",
+
+  "IRU-GENOCIDE_BOMB.description": "Deal {CalculatedDamage:diff()} damage. \nDeal 1 additional damage for every 10 [red]Heat[/red]. \nTake damage equal to 20% of damage dealt.",
+  "IRU-GENOCIDE_BOMB.title": "Genocide Bomb",
+
+  "IRU-LIGHT_DESTRUCTION_RAY.description": "Deal {Damage:diff()} damage to ALL enemies. \nApply {WeakPower:diff()} [gold]Weak[/gold] and [gold]Vulnerable[/gold].",
+  "IRU-LIGHT_DESTRUCTION_RAY.title": "Light Destruction Ray",
+
+  "IRU-LINEAR_RAY.description": "Deal {Damage:diff()} damage and {WeakPower:diff()} [gold]Weak[/gold] to ALL enemies.",
+  "IRU-LINEAR_RAY.title": "Linear Ray"
 }

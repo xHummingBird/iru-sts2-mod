@@ -7,17 +7,24 @@ using Iru.IruCode.Relics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace Iru.IruCode.Cards.Basic;
 
 public class PhotonRifle() : IruCard(1, CardType.Attack,
-    CardRarity.Basic, TargetType.AnyEnemy)
+    CardRarity.Basic, TargetType.AnyEnemy), IHeatCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
-        new DamageVar(12, ValueProp.Move)
+        new DamageVar(12, ValueProp.Move),
+        new DynamicVar("Heat", 30)
+    ];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        IruStaticHoverTips.Heat
     ];
 
     protected override async Task OnPlay(
@@ -51,7 +58,7 @@ public class PhotonRifle() : IruCard(1, CardType.Attack,
         await CommonActions.CardAttack(this, play.Target)
             .WithHitFx(null, null)
             .Execute(choiceContext);
-        IruResourceManager.GainHeat(Owner, 30);
+        IruResourceManager.GainHeat(Owner, DynamicVars["Heat"].IntValue);
     }
     
     protected override void OnUpgrade()

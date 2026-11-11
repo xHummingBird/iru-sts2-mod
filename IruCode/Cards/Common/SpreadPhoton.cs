@@ -5,6 +5,7 @@ using Iru.IruCode.Mechanics;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -18,6 +19,11 @@ public class SpreadPhoton() : IruCard(1, CardType.Attack,
     [
         new DamageVar(5, ValueProp.Move),
         new PowerVar<WeakPower>(1)
+    ];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        HoverTipFactory.FromPower<WeakPower>(),
     ];
 
     protected override async Task OnPlay(
@@ -44,12 +50,15 @@ public class SpreadPhoton() : IruCard(1, CardType.Attack,
                     stopDistance: 130f,
                     duration: 0.1F
                 );
-            await Task.Delay(100);
-            iru.PlayVfxOnTarget(
-                play.Target,
-                "res://Iru/scenes/vfx.tscn",
-                "photon_hit"
-            );
+            await Task.Delay(100); 
+            
+            foreach (var enemy in enemies)
+                iru.PlayVfxOnTarget(
+                    enemy,
+                    "res://Iru/scenes/vfx.tscn",
+                    "photon_hit"
+                );
+            
         }
         await CommonActions.CardAttack(this, play.Target)
             .WithHitFx(null, null)

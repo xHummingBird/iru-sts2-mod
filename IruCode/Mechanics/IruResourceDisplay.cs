@@ -908,7 +908,7 @@ private static bool CrossedThreshold(
             _hyperHover.GlobalPosition +
             new Vector2(
                 40f,
-                -440f);
+                -180f);
 
         tip.MouseFilter =
             MouseFilterEnum.Ignore;
@@ -1055,8 +1055,8 @@ private static bool CrossedThreshold(
         tip.GlobalPosition =
             _heatHover.GlobalPosition +
             new Vector2(
-                40f,
-                -440f);
+                -200f,
+                -340f);
 
         tip.MouseFilter =
             MouseFilterEnum.Ignore;

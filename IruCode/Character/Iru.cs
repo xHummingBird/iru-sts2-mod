@@ -107,17 +107,17 @@ public class Iru : PlaceholderCharacterModel
     
     public override NCreatureVisuals? CreateCustomVisuals()
     {
-        // IruAssets.EnsurePreloaded();
+        IruAssets.EnsurePreloaded();
         return NodeFactory<NCreatureVisuals>.CreateFromScene(CustomVisualScenePath);
     }
     
     // public override CreatureAnimator? GenerateAnimator(MegaSprite controller) => null;
     
-    public (float total, float[] impacts) PlayAnimation(Creature creature, string trigger)
+    public (float total, float[] impacts) PlayAnimation(Creature creature, string trigger, bool forceRestart = false)
     {
         if (creature == null || string.IsNullOrEmpty(trigger))
             return (0f, Array.Empty<float>());
-
+        
         var node = NCombatRoom.Instance?.GetCreatureNode(creature);
         if (node?.Visuals == null)
             return (0f, Array.Empty<float>());
@@ -141,8 +141,21 @@ public class Iru : PlaceholderCharacterModel
 
         var anim = animPlayer.GetAnimation(godotTrigger);
         float totalLength = (float)anim.Length;
+        
+        if (forceRestart)
+        {
+            animPlayer.Play(
+                godotTrigger,
+                customBlend: 0f,
+                customSpeed: 1f,
+                fromEnd: false);
 
-        animPlayer.Play(godotTrigger);
+            animPlayer.Seek(0f, true);
+        }
+        else
+        {
+            animPlayer.Play(godotTrigger);
+        }
         
         if (godotTrigger != "idle" && godotTrigger != "die")
             animPlayer.Queue("idle");

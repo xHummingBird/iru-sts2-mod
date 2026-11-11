@@ -1,5 +1,29 @@
 {
   "IRU-PHOTON_RIFLE.description": "If you did not take any damage last turn, lose 10 [red]Heat[/red] and 20% of total [red]Heat[/red] at the start of your turn.",
   "IRU-PHOTON_RIFLE.flavor": "",
-  "IRU-PHOTON_RIFLE.title": "Photon Rifle"
+  "IRU-PHOTON_RIFLE.title": "Photon Rifle",
+
+  "IRU-PHOTON_BUSTER.description": "Gain additional 5 Hyper per turn. Upgrade your [gold]Hyper Attack[/gold].",
+  "IRU-PHOTON_BUSTER.flavor": "",
+  "IRU-PHOTON_BUSTER.title": "Photon Buster",
+
+  "IRU-SPREAD.description": "Every time you play 3 Attacks in a single turn, deal 5 damage to ALL enemies.",
+  "IRU-SPREAD.flavor": "",
+  "IRU-SPREAD.title": "Spread",
+
+  "IRU-ELECTROMAGNETIC_TRAP_RELIC.description": "Whenever you gain [red]Heat[/red], deal 3 damage to ALL enemies.",
+  "IRU-ELECTROMAGNETIC_TRAP_RELIC.flavor": "",
+  "IRU-ELECTROMAGNETIC_TRAP_RELIC.title": "Electromagnetic Trap",
+
+  "IRU-MISSILE_LAUNCHER.description": "At the start of combat, add 2 random cards that can generate [red]Heat[/red].",
+  "IRU-MISSILE_LAUNCHER.flavor": "",
+  "IRU-MISSILE_LAUNCHER.title": "Missile Launcher",
+
+  "IRU-ELECTROMAGNETIC_POD.description": "At the start of combat, apply 2 [gold]Vulnerable[/gold] to ALL enemies.",
+  "IRU-ELECTROMAGNETIC_POD.flavor": "",
+  "IRU-ELECTROMAGNETIC_POD.title": "Electromagnetic Pod",
+
+  "IRU-ACCELERATOR.description": "Start combat with 50 [gold]Hyper[/gold]",
+  "IRU-ACCELERATOR.flavor": "",
+  "IRU-ACCELERATOR.title": "Accelerator"
 }

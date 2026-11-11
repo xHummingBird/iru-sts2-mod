@@ -1,3 +1,57 @@
 {
+  "IRU-NEXT_TURN_HEAT_POWER.description": "Gain [red]Heat[/red] next turn.",
+  "IRU-NEXT_TURN_HEAT_POWER.smartDescription": "Next turn, gain {Amount} [red]Heat[/red].",
+  "IRU-NEXT_TURN_HEAT_POWER.title": "Gain Heat Next Turn",
+
+  "IRU-HYPER_READY_POWER.description": "Every 100 Hyper Gauge enables the use of [gold]Hyper[/gold] Attacks.",
+  "IRU-HYPER_READY_POWER.smartDescription": "You can now use [gold]Hyper[/gold].",
+  "IRU-HYPER_READY_POWER.title": "Hyper",
+
+  "IRU-NO_HEAT_DAMAGE_POWER.description": "This turn, you don't take any additional damage from Heat.",
+  "IRU-NO_HEAT_DAMAGE_POWER.smartDescription": "This turn, you don't take any additional damage from Heat.",
+  "IRU-NO_HEAT_DAMAGE_POWER.title": "No Heat Damage",
   
+  "IRU-OVERCLOCK_POWER.description": "Gain [red]Heat[/red] whenever you attack.",
+  "IRU-OVERCLOCK_POWER.smartDescription": "Gain {Amount} [red]Heat[/red] whenever you attack.",
+  "IRU-OVERCLOCK_POWER.title": "Overclock",
+
+  "IRU-LOCK_ON_POWER.description": "Your next Attack damage is doubled.",
+  "IRU-LOCK_ON_POWER.smartDescription": "Your next Attack damage is increased by {Amount}00%.",
+  "IRU-LOCK_ON_POWER.title": "Lock-On",
+
+  "IRU-ELECTROMAGNETIC_TRAP_POWER.description": "Whenever you are attacked this turn, deal damage back.",
+  "IRU-ELECTROMAGNETIC_TRAP_POWER.smartDescription": "Whenever you are attacked this turn, deal [blue]{Amount}[/blue] damage back.",
+  "IRU-ELECTROMAGNETIC_TRAP_POWER.title": "Electromagnetic Trap",
+
+  "IRU-ACCEL_HYPER_POWER.title": "Accel Hyper",
+  "IRU-ACCEL_HYPER_POWER.description": "At the start of your turn, gain {energyPrefix:energyIcons(1)} 15 [gold]Hyper[/gold].",
+  "IRU-ACCEL_HYPER_POWER.smartDescription": "At the start of your turn, gain {Amount:energyIcons()} and {HyperGain} [gold]Hyper[/gold].",
+
+  "IRU-HEAVY_ARTILLERY_POWER.description": "At the start of your turn, gain 2 [gold]Strength[/gold] and 20 [red]Heat[/red].",
+  "IRU-HEAVY_ARTILLERY_POWER.smartDescription": "At the start of your turn, gain {Amount} [gold]Strength[/gold] and {Amount}0 [red]Heat[/red].",
+  "IRU-HEAVY_ARTILLERY_POWER.title": "Heavy Artillery",
+
+  "IRU-CONVERSION_PROTOCOL_POWER.description": "Whenever you gain [red]Heat[/red], gain 10 [gold]Hyper[/gold].",
+  "IRU-CONVERSION_PROTOCOL_POWER.smartDescription": "Whenever you gain [red]Heat[/red], gain {Amount} [gold]Hyper[/gold].",
+  "IRU-CONVERSION_PROTOCOL_POWER.title": "Conversion Protocol",
+
+  "IRU-TOMBOY_POWER.description": "Whenever you gain [red]Heat[/red], draw 1 card.",
+  "IRU-TOMBOY_POWER.smartDescription": "Whenever you gain [red]Heat[/red], draw {Amount} {Amount:plural:card|cards}",
+  "IRU-TOMBOY_POWER.title": "Tomboy",
+
+  "IRU-PHOTON_STABILISER_POWER.description": "Reduce [red]Heat[/red] damage amplification by 30.",
+  "IRU-PHOTON_STABILISER_POWER.smartDescription": "Reduce [red]Heat[/red] damage amplification by {Amount}.",
+  "IRU-PHOTON_STABILISER_POWER.title": "Photon Stabiliser",
+
+  "IRU-HEAT_ENGINE_POWER.description": "Whenever you gain [red]Heat[/red], gain [gold]Strength[/gold].",
+  "IRU-HEAT_ENGINE_POWER.smartDescription": "Whenever you gain [red]Heat[/red], gain {Amount} [gold]Strength[/gold]",
+  "IRU-HEAT_ENGINE_POWER.title": "Heat Engine",
+
+  "IRU-ENERGY_RESERVE_POWER.description": "At the end of your turn, lose [red]Heat[/red] for each unspent Energy.",
+  "IRU-ENERGY_RESERVE_POWER.smartDescription": "At the end of your turn, lose {Amount} [red]Heat[/red] for each unspent Energy.",
+  "IRU-ENERGY_RESERVE_POWER.title": "Energy Reserve",
+
+  "IRU-HEAT_ABSORPTION_POWER.description": "Whenever you gain [red]Heat[/red], gain [gold]Block[/gold].",
+  "IRU-HEAT_ABSORPTION_POWER.smartDescription": "Whenever you gain [red]Heat[/red], gain {Amount} [gold]Block[/gold].",
+  "IRU-HEAT_ABSORPTION_POWER.title": "Heat Absorption"
 }
