@@ -48,7 +48,7 @@
   "IRU-RICOCHET.description": "Deal {Damage:diff()} damage to ALL enemies. \nCosts 1 less {energyPrefix:energyIcons(1)} for each Attack played this turn.",
 
   "IRU-EXTENDED_RIFLE.title": "Extended Rifle",
-  "IRU-EXTENDED_RIFLE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {BonusDamage:diff()} additional damage for every 15 [red]Heat[/red].",
+  "IRU-EXTENDED_RIFLE.description": "Deal {CalculatedDamage:diff()} damage.\nDeals {ExtraDamage:diff()} additional damage for every 15 [red]Heat[/red].",
 
   "IRU-EMERGENCY_PAYLOAD.title": "Emergency Payload",
   "IRU-EMERGENCY_PAYLOAD.description": "Deal {Damage:diff()} damage.\nIf you have at least 100 [red]Heat[/red], gain {Energy:energyIcons()}.",
@@ -132,7 +132,7 @@
   "IRU-HEAVY_ARTILLERY.description": "At the start of your turn, 20 [red]Heat[/red] and 2 [gold]Strength[/gold].",
 
   "IRU-ACCEL_HYPER.title": "Accel Hyper",
-  "IRU-ACCEL_HYPER.description": "At the start of your turn, gain {Hyper:diff()} [gold]Hyper[/gold] and {Energy:energyIcons()}.",
+  "IRU-ACCEL_HYPER.description": "At the start of your turn, gain 15 [gold]Hyper[/gold] and {Energy:energyIcons()}.",
 
   "IRU-HEAT_ABSORPTION.title": "Heat Absorption",
   "IRU-HEAT_ABSORPTION.description": "Whenever you gain [red]Heat[/red], gain {HeatAbsorptionPower:diff()} [gold]Block[/gold].",

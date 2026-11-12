@@ -60,4 +60,11 @@ public class AccelHyperPower : IruPower
         DynamicVars[HyperGainKey]
             .BaseValue++;
     }
+    
+    public void UpdateHyperGain()
+    {
+        AssertMutable();
+
+        DynamicVars[HyperGainKey].BaseValue = 15 * Amount;
+    }
 }
