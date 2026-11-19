@@ -9,7 +9,7 @@
   "IRU-PHOTON_RIFLE.description": "Deal {Damage:diff()} damage.\nGain {Heat:diff()} [red]Heat[/red].",
 
   "IRU-DUMBFIRE_ROCKET.title": "Dumbfire Rocket",
-  "IRU-DUMBFIRE_ROCKET.description": "Deal {Damage:diff()} damage to a random enemy {Repeat:diff()} times.\nGain {Heat:diff()} [red]Heat[/red].",
+  "IRU-DUMBFIRE_ROCKET.description": "Deal {Damage:diff()} damage to a random enemy {HitCount:diff()} times.\nGain {Heat:diff()} [red]Heat[/red].",
 
   "IRU-POCKET_MISSILE.title": "Pocket Missile",
   "IRU-POCKET_MISSILE.description": "Deal {Damage:diff()} damage.\nGain {Heat:diff()} [red]Heat[/red].",
@@ -42,7 +42,7 @@
   "IRU-HOMING_MISSILE.description": "Deal {Damage:diff()} damage.\nApply {VulnerablePower:diff()} [gold]Vulnerable[/gold].\nApply {WeakPower:diff()} [gold]Weak[/gold].",
 
   "IRU-PHOTON_BARRAGE.title": "Photon Barrage",
-  "IRU-PHOTON_BARRAGE.description": "Deal {Damage:diff()} damage {Repeat:diff()} times.\nGain {Heat:diff()} [red]Heat[/red].",
+  "IRU-PHOTON_BARRAGE.description": "Deal {Damage:diff()} damage {HitCount:diff()} times.\nGain {Heat:diff()} [red]Heat[/red].",
 
   "IRU-RICOCHET.title": "Ricochet",
   "IRU-RICOCHET.description": "Deal {Damage:diff()} damage to ALL enemies. \nCosts 1 less {energyPrefix:energyIcons(1)} for each Attack played this turn.",

@@ -33,7 +33,7 @@ public class MissileBarrage() : IruCard(
         new CalculationBaseVar(0),
         new CalculationExtraVar(1),
 
-        new CalculatedVar(CalculatedHitsKey)
+        new CalculatedHitCountVar(CalculatedHitsKey)
             .WithMultiplier((card, _) =>
                 CombatManager.Instance.History.CardPlaysFinished.Count(entry =>
                     entry.HappenedThisTurn(card.CombatState) &&
@@ -55,7 +55,7 @@ public class MissileBarrage() : IruCard(
         if (Owner?.Character is not Character.Iru iru)
         {
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .WithHitCount((int)((CalculatedVar)base.DynamicVars["CalculatedHits"]).Calculate(play.Target))
+                .WithHitCount((int)((CalculatedHitCountVar)base.DynamicVars["CalculatedHits"]).Calculate(play.Target))
                 .FromCard(this, play)
                 .Targeting(play.Target)
                 .Execute(choiceContext);
@@ -66,7 +66,7 @@ public class MissileBarrage() : IruCard(
         AudioHelper.PlayRandomAttack();
 
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .WithHitCount((int)((CalculatedVar)base.DynamicVars["CalculatedHits"]).Calculate(play.Target))
+            .WithHitCount((int)((CalculatedHitCountVar)base.DynamicVars["CalculatedHits"]).Calculate(play.Target))
             .FromCard(this, play)
             .Targeting(play.Target)
             .WithHitFx(null, "res://Iru/sfx/fire_impact (2).wav")

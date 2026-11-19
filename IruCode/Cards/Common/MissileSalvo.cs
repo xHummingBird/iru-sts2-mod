@@ -18,7 +18,7 @@ public class MissileSalvo() : IruCard(2, CardType.Attack,
     protected override IEnumerable<DynamicVar> CanonicalVars => 
     [
         new DamageVar(6, ValueProp.Move),
-        new RepeatVar(2)
+        new HitCountVar(2)
     ];
 
     protected override async Task OnPlay(
@@ -28,7 +28,7 @@ public class MissileSalvo() : IruCard(2, CardType.Attack,
         if (Owner?.Character is not Character.Iru iru)
         {
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .WithHitCount(DynamicVars.Repeat.IntValue)
+                .WithHitCount(DynamicVars.HitCount.IntValue)
                 .FromCard(this, play)
                 .Targeting(play.Target)
                 .Execute(choiceContext);
@@ -37,7 +37,7 @@ public class MissileSalvo() : IruCard(2, CardType.Attack,
         {
             AudioHelper.PlayRandomAttack();
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .WithHitCount(DynamicVars.Repeat.IntValue)
+                .WithHitCount(DynamicVars.HitCount.IntValue)
                 .FromCard(this, play)
                 .Targeting(play.Target)
                 .WithHitFx(null, "res://Iru/sfx/fire_impact (2).wav")

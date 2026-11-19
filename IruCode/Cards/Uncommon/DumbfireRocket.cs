@@ -17,7 +17,7 @@ public class DumbfireRocket() : IruCard(1, CardType.Attack,
     [
         new DamageVar(3, ValueProp.Move),
         new DynamicVar("Heat", 30),
-        new RepeatVar(5)
+        new HitCountVar(5)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -32,7 +32,7 @@ public class DumbfireRocket() : IruCard(1, CardType.Attack,
         if (Owner?.Character is not Character.Iru iru)
         {
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .WithHitCount(DynamicVars.Repeat.IntValue)
+                .WithHitCount(DynamicVars.HitCount.IntValue)
                 .FromCard(this, play)
                 .TargetingRandomOpponents(base.CombatState)
                 .Execute(choiceContext);
@@ -40,7 +40,7 @@ public class DumbfireRocket() : IruCard(1, CardType.Attack,
         }
         AudioHelper.PlayRandomAttack();
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .WithHitCount(DynamicVars.Repeat.IntValue)
+            .WithHitCount(DynamicVars.HitCount.IntValue)
             .FromCard(this, play)
             .TargetingRandomOpponents(base.CombatState)
             .WithHitFx(null, "res://Iru/sfx/fire_impact (2).wav")

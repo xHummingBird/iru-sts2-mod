@@ -17,7 +17,7 @@ public class PhotonBarrage() : IruCard(2, CardType.Attack,
     [
         new DamageVar(7, ValueProp.Move),
         new DynamicVar("Heat", 50),
-        new RepeatVar(4)
+        new HitCountVar(4)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -32,7 +32,7 @@ public class PhotonBarrage() : IruCard(2, CardType.Attack,
         if (Owner?.Character is not Character.Iru iru)
         {
             await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-                .WithHitCount(DynamicVars.Repeat.IntValue)
+                .WithHitCount(DynamicVars.HitCount.IntValue)
                 .FromCard(this, play)
                 .Targeting(play.Target)
                 .Execute(choiceContext);
@@ -40,7 +40,7 @@ public class PhotonBarrage() : IruCard(2, CardType.Attack,
         }
         AudioHelper.PlayRandomAttack();
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue)
-            .WithHitCount(DynamicVars.Repeat.IntValue)
+            .WithHitCount(DynamicVars.HitCount.IntValue)
             .FromCard(this, play)
             .Targeting(play.Target)
             .WithNoAttackerAnim()
@@ -81,6 +81,6 @@ public class PhotonBarrage() : IruCard(2, CardType.Attack,
     
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        DynamicVars.HitCount.UpgradeValueBy(1);
     }
 }
